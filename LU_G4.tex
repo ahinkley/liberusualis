@@ -1,0 +1,69 @@
+% !TEX program = LuaLaTeX+se
+\documentclass[10pt, a4paper]{article}
+
+\usepackage{ebgaramond}
+
+\pagestyle{empty}
+\usepackage[margin=0.75in, paperwidth=6in, paperheight=9in]{geometry}
+
+\usepackage{fontspec}
+\usepackage[autocompile]{gregoriotex}
+
+\usepackage{gregoriotex}
+\GreLoadSpaceConf{LU}
+
+%%%%From GregoRef.tex
+\usepackage{enumitem}
+\usepackage{xspace}
+\usepackage{multicol}
+\usepackage{units}
+\usepackage{framed}
+\usepackage{url}
+
+\definecolor{myred}{HTML}{FF3333}
+
+%%%
+
+\usepackage{changepage}
+\usepackage{titlesec}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+%\usepackage{changemargin}
+\def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
+\let\endchangemargin=\endlist 
+
+\titleformat{\section}{\color{red}\normalfont\huge\bfseries\filcenter}{\color{red}\thesection}{1em}{}
+\titleformat{\subsection}{\color{red}\normalfont\Large\bfseries\center}{\color{red}\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\color{red}\normalfont\large\bfseries\center}{\color{red}\thesubsubsection}{1em}{}
+
+%Centred gabc code sample: boxwidth, gabc
+\newcommand{\centersnippet}[2]{
+  \begin{center}%
+    \parbox{#1}{\gabcsnippet{#2}}%
+  \end{center}%
+}
+
+%Neume samples within text: shift down, boxwidth, gabc
+\newcommand{\glyphsnippet}[3]{
+  \raisebox{#1pt}[\height][0pt]{%
+  \begin{minipage}{#2in}%
+  \gresetclef{invisible}%
+  \gresetlines{invisible}%
+  \gabcsnippet[0]{(#3)}%
+  \end{minipage}%
+  }%
+}
+
+\begin{document}
+\grechangestyle{abovelinestext}{\small}
+
+\include{introduction}
+\include{preface}
+
+\end{document}
+
