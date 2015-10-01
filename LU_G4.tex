@@ -5,12 +5,15 @@
 
 \pagestyle{empty}
 \usepackage[margin=0.75in, paperwidth=6in, paperheight=9in]{geometry}
-
 \usepackage{fontspec}
 \usepackage[autocompile]{gregoriotex}
-
 \usepackage{gregoriotex}
 \GreLoadSpaceConf{LU}
+\usepackage{hyperref}
+
+\usepackage{enumerate}
+\usepackage[shortlabels]{enumitem}
+\usepackage{indentfirst}
 
 %%%%From GregoRef.tex
 \usepackage{enumitem}
@@ -59,11 +62,21 @@
   }%
 }
 
+%Tables
+\usepackage{booktabs}
+\newcommand*\rot{\rotatebox{90}}
+
+%\includeonly{rules_for_interpretation}
+
 \begin{document}
 \grechangestyle{abovelinestext}{\small}
 
 \include{introduction}
 \include{preface}
-
+\include{rubrics}
+\include{rules_for_interpretation}
+\include{table_of_movable_feasts}
+\include{rubrics_for_office}
+\include{rubrics_for_mass}
 \end{document}
 
